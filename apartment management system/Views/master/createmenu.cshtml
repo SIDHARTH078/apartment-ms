@@ -1,0 +1,46 @@
+﻿@model apartment_management_system.Models.menu
+
+
+@{
+    ViewData["Title"] = "Create Menu";
+}
+<div class="container mt-4">
+    <h2>create new user</h2>
+    <hr />
+    <div class=" row">
+        <div class="col-md-6">
+            <form asp-action="createmenu" method="post">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                @* <div class="mb-3">
+                    <label asp-for="OwnerID" class="form-label"></label>
+                    <input asp-for="OwnerID" class="form-control" />
+                    <span asp-validation-for="OwnerID" class="text-danger"></span> 
+                </div> *@
+                <div class="mb-3">
+                    <label asp-for="FullName" class="form-label"></label>
+                    <input asp-for="FullName" class="form-control" />
+                    <span asp-validation-for="FullName" class="text-danger"></span>
+                </div>
+                <div class="mb-3">
+                    <label asp-for="Phone" class="form-label"></label>
+                    <input asp-for="Phone" class="form-control" />
+                    <span asp-validation-for="Phone" class="text-danger"></span>
+                </div>
+                <div class="mb-3">
+                    <label asp-for="Email" class="form-label"></label>
+                    <input asp-for="Email" class="form-control" />
+                    <span asp-validation-for="Email" class="text-danger"></span>
+                </div>
+                <div class="mb-3">
+                    <label asp-for="FlatNumber" class="form-label"></label>
+                    <input asp-for="FlatNumber" class="form-control" />
+                    <span asp-validation-for="FlatNumber" class="text-danger"></span>
+                </div>
+                <div class="mb-auto">
+                    <button type="submit" class="btn btn-success">save user</button>
+                    <a asp-action="Index" class="btn btn-secondary">back to list</a>
+                </div>
+            </form>
+        </div>
+     </div>
+</div> 
