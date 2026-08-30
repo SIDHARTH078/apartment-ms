@@ -26,21 +26,22 @@ namespace apartment_management_system.Controllers
         {
             if (ModelState.IsValid)
             {
-                _db.ownermaster.Add(abc);
+                _db.owner.Add(abc);
                 _db.SaveChanges();
                 return RedirectToAction("createmenu");
             }
             return View();
         }
 
+        [HttpGet]
         public async Task<IActionResult> deletemenu(int? id)
         {
             if (id == null) return NotFound();
 
-            var OwnerMaster = await _db.ownermaster.FirstOrDefaultAsync(m => m.OwnerID == id);
-            if (OwnerMaster == null) return NotFound();
+            var owner = await _db.owner.FirstOrDefaultAsync(m => m.OwnerID == id);
+            if (owner == null) return NotFound();
 
-            return View(OwnerMaster);
+            return View(owner);
         }
 
         // POST: OwnerMasters/Delete/5
@@ -48,10 +49,10 @@ namespace apartment_management_system.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> deletemenu(int id)
         {
-            var OwnerMaster = await _db.ownermaster.FindAsync(id);
-            if (OwnerMaster != null)
+            var owner = await _db.owner.FindAsync(id);
+            if (owner != null)
             {
-                _db.ownermaster.Remove(OwnerMaster);
+                _db.owner.Remove(owner);
                 await _db.SaveChangesAsync();
             }
             return RedirectToAction(nameof(Index));
@@ -60,7 +61,7 @@ namespace apartment_management_system.Controllers
         [HttpGet]
         public async Task<IActionResult> Index()
         {
-            return View(await _db.ownermaster.ToListAsync());
+            return View(await _db.owner.ToListAsync());
         }
 
 

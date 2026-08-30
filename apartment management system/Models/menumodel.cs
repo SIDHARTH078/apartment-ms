@@ -13,7 +13,8 @@ namespace apartment_management_system.Models
         [Required]
         public string? Phone { get; set; }
         [Required]
-        public string? Email { get; set; }
+        [MaxLength(256)]
+        public string Email { get; set; } = string.Empty;
         [Required]
 
         public string? FlatNumber { get; set; }

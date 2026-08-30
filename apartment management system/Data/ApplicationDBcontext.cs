@@ -11,6 +11,6 @@ namespace apartment_management_system.Data
             : base(options)
         {
         }
-        public DbSet<menu> ownermaster { get; set; }
+        public DbSet<menu> owner { get; set; }
     }
 }
